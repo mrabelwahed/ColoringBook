@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gris_light">#e1dfe1</color>
+    <color name="blue">#1e90ff</color>
+    <color name="c1">#ff5733 </color>
+    <color name="c2">#FFC300</color>
+    <color name="c3">#F3d3</color>
+    <color name="c4">#581845</color>
+    <color name="c5">#58d68d</color>
+    <color name="c6">#212f3c</color>
+
+
+    <array name="demo_colors">
+        <item>@color/black</item>
+        <item>@color/gris_light</item>
+        <item>@color/blue</item>
+        <item>@color/c1</item>
+        <item>@color/c2</item>
+        <item>@color/c3</item>
+        <item>@color/c4</item>
+        <item>@color/c5</item>
+        <item>@color/c6</item>
+    </array>
+
+</resources>
