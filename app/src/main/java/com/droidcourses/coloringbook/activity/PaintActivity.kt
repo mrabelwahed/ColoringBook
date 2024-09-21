@@ -3,15 +3,12 @@ package com.droidcourses.coloringbook.activity
 import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.Color
 import android.os.Build
-import android.os.Build.VERSION
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.GridLayout.Spec
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -27,7 +24,6 @@ import com.thebluealliance.spectrum.SpectrumPalette
 import java.io.File
 import java.io.FileOutputStream
 import java.util.UUID
-import kotlin.properties.Delegates
 
 class PaintActivity : AppCompatActivity(), SpectrumPalette.OnColorSelectedListener {
     private val toolbar: Toolbar by lazy {
@@ -85,11 +81,11 @@ class PaintActivity : AppCompatActivity(), SpectrumPalette.OnColorSelectedListen
         if (item.itemId == android.R.id.home)
             finish()
         else
-            saveImage(paintView.bitmap)
+            saveImage()
         return super.onOptionsItemSelected(item)
     }
 
-    private fun saveImage(bitmap: Bitmap) {
+    private fun saveImage() {
         if (Build.VERSION.SDK_INT == Build.VERSION_CODES.TIRAMISU) {
             saveBitmap()
         } else {
@@ -150,7 +146,7 @@ class PaintActivity : AppCompatActivity(), SpectrumPalette.OnColorSelectedListen
         }
         runCatching {
             FileOutputStream(folder.toString().plus(File.separator + fileName)).use {
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, it)
+                bitmap?.compress(Bitmap.CompressFormat.PNG, 100, it)
             }
         }
             .onSuccess {
